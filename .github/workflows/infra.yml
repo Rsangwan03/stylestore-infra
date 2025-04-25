@@ -44,6 +44,8 @@ jobs:
     needs: installation_and_deployment
     runs-on: ubuntu-latest
     environment: Manual-approval  # 👈 This triggers the manual review step
+    permissions:
+      id-token: 'write'
     steps:
       - name: Approval Passed
         run: echo "Manual approval completed!"
