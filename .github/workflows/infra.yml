@@ -33,8 +33,12 @@ jobs:
 
       - name: Terraform plan
         id: plan
-        run: terraform plan -lock-timeout=60s
+        env:
+         ADMIN_USERNAME: ${{ secrets.ADMIN_USERNAME }}
+         ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
+        run: terraform plan -var "admin_username=${{ secrets.ADMIN_USERNAME }}" -var "admin_password=${{ secrets.ADMIN_PASSWORD }}"
         working-directory: ./dev
+
 
   manual-approval:
     needs: installation_and_deployment

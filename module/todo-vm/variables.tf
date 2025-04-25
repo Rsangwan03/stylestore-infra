@@ -9,3 +9,16 @@ variable "vms" {
         public_ip_enabled    = bool
     }))
 }
+
+variable "admin_username" {
+    type        = string
+    description = "The admin username for the VM."
+  
+}
+
+variable "admin_password" {
+    type        = string
+    description = "The admin password for the VM."
+    sensitive   = true
+  
+}
