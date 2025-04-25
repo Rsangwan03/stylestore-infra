@@ -30,3 +30,13 @@ jobs:
         id: init
         run: terraform init
         working-directory: ./dev
+
+      - name: Terraform plan
+        id: plan
+        run: terraform plan
+        working-directory: ./dev
+      
+      # - name: Terraform apply
+      #   id: apply
+      #   run: terraform apply -auto-approve
+      #   working-directory: ./dev
