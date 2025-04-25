@@ -47,7 +47,10 @@ jobs:
     steps:
       - name: Approval Passed
         run: echo "Manual approval completed!"
-
+      
+      - name: Check directory contents before apply
+        run: ls -R $GITHUB_WORKSPACE
+        working-directory: ./dev
     
       - name: Terraform apply
         id: apply
