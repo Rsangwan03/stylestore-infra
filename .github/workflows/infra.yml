@@ -35,7 +35,16 @@ jobs:
         id: plan
         run: terraform plan -lock-timeout=60s
         working-directory: ./dev
-      
+
+  manual-approval:
+    needs: installation_and_deployment
+    runs-on: ubuntu-latest
+    environment: manual-approval  # 👈 This triggers the manual review step
+    steps:
+      - name: Approval Passed
+        run: echo "Manual approval completed!"
+
+    
       # - name: Terraform apply
       #   id: apply
       #   run: terraform apply -auto-approve
