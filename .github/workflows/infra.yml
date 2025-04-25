@@ -19,13 +19,13 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
       
-      - uses: hashicorp/setup-terraform@v3
+      - uses: hashicorp/setup-terraform@v4
         with:
          terraform_version: latest
       
       - name: path
         run: echo "$GITHUB_WORKSPACE"
-        
+
       - name: Terraform Init
         id: init
         run: terraform init
