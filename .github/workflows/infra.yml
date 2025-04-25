@@ -49,7 +49,11 @@ jobs:
         run: echo "Manual approval completed!"
 
     
-      # - name: Terraform apply
-      #   id: apply
-      #   run: terraform apply -auto-approve
-      #   working-directory: ./dev
+      - name: Terraform apply
+        id: apply
+        if: github.ref == 'refs/heads/main'
+        env:
+         ADMIN_USERNAME: ${{ secrets.ADMIN_USERNAME }}
+         ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
+        run: terraform apply -auto-approve -var "admin_username=${{ secrets.ADMIN_USERNAME }}" -var "admin_password=${{ secrets.ADMIN_PASSWORD }}"
+        working-directory: ./dev
