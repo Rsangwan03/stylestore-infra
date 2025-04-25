@@ -4,7 +4,7 @@ on:
       - main
 
 jobs:
-  test:
+  installation_and_deployment:
     runs-on: ubuntu-latest
     permissions:
       id-token: 'write'
@@ -29,3 +29,4 @@ jobs:
       - name: Terraform Init
         id: init
         run: terraform init
+        working-directory: ./dev
