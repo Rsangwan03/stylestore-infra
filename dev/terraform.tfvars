@@ -45,7 +45,7 @@ vms = {
     network_interface_id = "auth-nic"
     vnet_name = "stylestore-vnet"
     subnet_name = "stylestore-backendsubnet-auth"
-    public_ip_enabled = false
+    public_ip_enabled = true
   }
   "vm3" = {
     name = "order-vm"
@@ -54,6 +54,6 @@ vms = {
     network_interface_id = "order-nic"
     vnet_name = "stylestore-vnet"
     subnet_name = "stylestore-backendsubnet-order"
-    public_ip_enabled = false
+    public_ip_enabled = true
   }
 }
