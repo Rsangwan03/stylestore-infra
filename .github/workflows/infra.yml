@@ -39,7 +39,7 @@ jobs:
   manual-approval:
     needs: installation_and_deployment
     runs-on: ubuntu-latest
-    environment: manual-approval  # 👈 This triggers the manual review step
+    environment: Manual-approval  # 👈 This triggers the manual review step
     steps:
       - name: Approval Passed
         run: echo "Manual approval completed!"
