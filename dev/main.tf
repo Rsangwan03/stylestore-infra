@@ -59,6 +59,8 @@ module "vms" {
     source = "../module/todo-vm"
     vms = var.vms
     depends_on = [ module.vnets ]
+    admin_username = var.admin_username
+    admin_password = var.admin_password
   
 }
 
