@@ -33,7 +33,7 @@ jobs:
 
       - name: Terraform plan
         id: plan
-        run: terraform plan
+        run: terraform plan -lock-timeout=60s
         working-directory: ./dev
       
       # - name: Terraform apply
