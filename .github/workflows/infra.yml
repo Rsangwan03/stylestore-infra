@@ -50,6 +50,15 @@ jobs:
       
       - name: Checkout repo
         uses: actions/checkout@v4
+
+      - uses: hashicorp/setup-terraform@v3
+        with:
+         terraform_version: latest
+
+      - name: Terraform Init
+        id: init
+        run: terraform init
+        working-directory: ./dev
       
       - name: Check directory contents before apply
         run: ls -R $GITHUB_WORKSPACE
