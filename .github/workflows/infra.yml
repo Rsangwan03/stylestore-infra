@@ -43,19 +43,18 @@ jobs:
   manual-approval:
     needs: installation_and_deployment
     runs-on: ubuntu-latest
-    environment: Manual-approval  # This triggers the manual review step
+    # environment: Manual-approval  # This triggers the manual review step
     permissions:
       id-token: 'write'
     steps:
-      - name: Approval Passed
-        run: echo "Manual approval completed!" # 👈 This triggers the manual review step
-
-      # Use OIDC authentication in the second job
-      - name: Azure Login (OIDC)
+      - name: Azure Login
         uses: azure/login@v2
         with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }} 
           identity: true  # Enable OIDC authentication for GitHub Actions
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+     
       
       - name: Checkout repo
         uses: actions/checkout@v4
