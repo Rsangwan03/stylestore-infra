@@ -48,6 +48,9 @@ jobs:
       - name: Approval Passed
         run: echo "Manual approval completed!"
       
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      
       - name: Check directory contents before apply
         run: ls -R $GITHUB_WORKSPACE
         working-directory: ./dev
